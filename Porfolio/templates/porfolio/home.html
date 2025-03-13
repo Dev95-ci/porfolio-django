@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Accueil - Mon Portfolio{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <header class="hero wow fadeIn">
+                <div>
+                    <h1>Bienvenue sur mon Portfolio</h1>
+                    <p>Je suis Traore Sekou, Développeur Full-Stack</p>
+                    <a href="{% url 'about' %}" class="btn btn-primary btn-lg mt-3">En savoir plus</a>
+                </div>
+            </header>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static "img/sekou.jpg" %}" alt="Photo de moi" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
+{% endblock %}
+

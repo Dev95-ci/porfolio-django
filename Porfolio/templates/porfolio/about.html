@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}À Propos - Mon Portfolio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">À propos de moi</h2>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <img src="{% static "img/sekou.jpg" %}" alt="Photo de moi" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-8">
+            <p>Je suis Traore Sekou, développeur web spécialisé php et python et en solutions logicielles. Avec plusieurs projets à mon actif, j’aime créer des applications performantes et intuitives.</p>
+            <p>J’ai une expertise en PHP, Laravel, Python, Django, HTML, CSS, et bases de données MySQL et Sqlite.</p>
+            <p>N’hésitez pas à me contacter pour discuter de projets ou collaborations !</p>
+            <a href="{% url 'contact' %}" class="btn btn-outline-primary mt-3">Me Contacter</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

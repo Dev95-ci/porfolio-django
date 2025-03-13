@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ project.title }}</h1>
+  <img src="{{ project.image.url }}" alt="{{ project.title }}">
+  <p>{{ project.description }}</p>
+  <p>Technologies utilisées : {{ project.technologies }}</p>
+  {% if project.github_link %}
+    <a href="{{ project.github_link }}">Voir sur GitHub</a>
+  {% endif %}
+{% endblock %}

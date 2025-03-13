@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - Mon Portfolio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Contactez-moi</h2>
+    <p class="text-center">Vous avez un projet ou une question ? Envoyez-moi un message !</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="name" placeholder="Votre nom" name='nom'>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Votre email" name="mail">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Votre message" name='content'></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 text-center">
+    <h2 class="wow fadeInUp">Plus d'informations</h2>
+    <p class="wow fadeInUp" data-wow-delay="0.3s">N'hésitez pas à me contacter via les informations ci-dessous.</p>
+    
+    <div class="row mt-4">
+        <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.5s">
+            <h4>Email</h4>
+            <p><a href="mailto:mst4074677@gmail.com" class="text-decoration-none text-light">st4074677@gmail.com</a></p>
+            <h4>Téléphone</h4>
+            <p><a href="tel:+2250595605540" class="text-decoration-none text-light">+225 05 95 60 55 40</a></p>
+            <h4>Adresse</h4>
+            <p>Abidjan, Côte d'Ivoire</p>
+        </div>
+        <div class="col-md-6 wow fadeInRight" data-wow-delay="0.5s">
+            <h4>Réseaux Sociaux</h4>
+            <p>
+                <a href="" target="_blank" class="btn btn-primary m-1">Facebook</a>
+                <a href="" target="_blank" class="btn btn-info m-1">Twitter</a>
+                <a href="" target="_blank" class="btn btn-dark m-1">LinkedIn</a>
+                <a href="" target="_blank" class="btn btn-secondary m-1">GitHub</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
