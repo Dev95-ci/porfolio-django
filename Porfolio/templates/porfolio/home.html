@@ -5,21 +5,41 @@
 {% block title %}Accueil - Mon Portfolio{% endblock %}
 
 {% block content %}
-<div class="container text-center mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <header class="hero wow fadeIn">
-                <div>
-                    <h1>Bienvenue sur mon Portfolio</h1>
-                    <p>Je suis Traore Sekou, Développeur Full-Stack</p>
-                    <a href="{% url 'about' %}" class="btn btn-primary btn-lg mt-3">En savoir plus</a>
-                </div>
-            </header>
+<!-- Section "À propos" -->
+<section id="about" class="text-center py-5 fade-in">
+    <div class="container">
+        <h1>Hi, je suis Traore Sekou</h1>
+        <img src="{% static "img/sekou.jpg" %}" alt="Ma photo" class="profile-photo mt-3">
+        <p class="lead mt-4">Développeur Full-Stack intermediaire passionné par la technologie, le développement et les solutions innovantes.</p>
+    </div>
+</section>
+
+<!-- Section "Compétences" -->
+<section id="skills" class="bg-light py-5 fade-in">
+    <div class="container">
+        <h2 class="text-center mb-4">Mes Compétences</h2>
+
+        <div class="skill-container">
+            <h5>HTML & CSS</h5>
+            <div class="skill-bar bg-primary" style="width: 90%;"></div>
         </div>
-        <div class="col-md-4">
-            <img src="{% static "img/sekou.jpg" %}" alt="Photo de moi" class="img-fluid rounded shadow">
+        <div class="skill-container">
+            <h5>JavaScript</h5>
+            <div class="skill-bar bg-warning" style="width: 30%;"></div>
+        </div>
+        <div class="skill-container">
+            <h5>Python </h5>
+            <div class="skill-bar bg-success" style="width: 85%;"></div>
+        </div>
+        <div class="skill-container">
+            <h5>PHP</h5>
+            <div class="skill-bar bg-info" style="width: 75%;"></div>
+        </div>
+        <div class="skill-container">
+            <h5>MySQL</h5>
+            <div class="skill-bar bg-danger" style="width: 80%;"></div>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
 

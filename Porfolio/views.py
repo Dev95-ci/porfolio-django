@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.views.generic import ListView, DetailView
-from .models import Project
+from .models import Project, ProjectImage
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
+
 
 
 
@@ -49,4 +51,12 @@ class ProjectDetailView(DetailView):
     model = Project
     template_name = 'porfolio/project_detail.html'
     context_object_name = 'project'
+
+
+
+def project_detail(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
+    images = project.images.all()  # Grâce à related_name="images"
+    return render(request, 'porfolio/project_detail.html', {'project': project, 'images': images})
+
 

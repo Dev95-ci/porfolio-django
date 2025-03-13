@@ -1,12 +1,43 @@
 
 {% extends 'base.html' %}
 
+{% block title %}
+  {{ project.title }}
+{% endblock  %}
+
 {% block content %}
-  <h1>{{ project.title }}</h1>
-  <img src="{{ project.image.url }}" alt="{{ project.title }}">
-  <p>{{ project.description }}</p>
-  <p>Technologies utilisées : {{ project.technologies }}</p>
-  {% if project.github_link %}
-    <a href="{{ project.github_link }}">Voir sur GitHub</a>
-  {% endif %}
+<div class="container mt-4">
+  <h1 class="text-center">{{ project.title }}</h1>
+  <h3 class="text-center">Description</h1>
+  <p class="text-center">{{ project.description }}</p>
+  <h3 class="text-center">Technologies utilisées :</h1>
+  <p class="text-center">{{ project.technologies}}</p>
+
+  <div class="row">
+    {% for image in images %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="{{ image.image.url }}" class="card-img-top" alt="Image de {{ project.title }}" data-bs-toggle="modal" data-bs-target="#imageModal{{ image.id }}">
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal{{ image.id }}" tabindex="-3" aria-labelledby="imageModalLabel{{ image.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel{{ image.id }}">Image de {{ project.title }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ image.image.url }}" class="img-fluid" alt="Image de {{ project.title }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">Aucune image disponible pour ce projet.</p>
+    {% endfor %}
+</div>
 {% endblock %}
+

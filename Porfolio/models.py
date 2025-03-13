@@ -19,4 +19,5 @@ class ProjectImage(models.Model):
     caption = models.CharField(max_length=200, blank=True, null=True)  # Optionnel, pour une légende
 
     def __str__(self):
+        
         return f"Image pour {self.project.title}"
