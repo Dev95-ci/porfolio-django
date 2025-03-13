@@ -24,9 +24,48 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dt!+t#)fic3t%z7018rtn539(1cm*^fgp*3=f^6cq=kwjozzkp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['porfolio-django-dev95.up.railway.app', '127.0.0.1']
+
+ADMINS = [('Traore Sekou', 'st4074677@gmail.com')]
+
+# Configuration du backend email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'  # Remplace par ton serveur SMTP
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'st4074677@gmail.com'
+EMAIL_HOST_PASSWORD = 'dev-9560'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'django_errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
+
+# Paramètre pour empêcher les attaques CSRF
+CSRF_COOKIE_SECURE = True
+# Paramètre pour sécuriser les cookies
+SESSION_COOKIE_SECURE = True
+# Paramètre pour activer le HSTS (HTTP Strict Transport Security)
+SECURE_HSTS_SECONDS = 3600  # ou 31536000 pour un an
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 
 
